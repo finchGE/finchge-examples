@@ -68,11 +68,11 @@ if __name__ == '__main__':
     result = ge_.run()
   
 
-    print(f"\nBest fitness (RMSE): {result.best_individual.fitness[0]:.6f}")
-    print(f"Best program: {result.best_individual.phenotype}")
-    
+    print(f"\nBest fitness (RMSE): {result.all_time_best.fitness[0]:.6f}")
+    print(f"Best program: {result.all_time_best.phenotype}")
+
     # Test on unseen data
-    test_predictions = runner.run(result.best_individual.phenotype)
+    test_predictions = runner.run(result.all_time_best.phenotype)
     test_rmse = np.sqrt(np.mean((test_predictions['y_pred'] - y_test) ** 2))
     print(f"Test RMSE: {test_rmse:.6f}")
     

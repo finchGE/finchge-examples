@@ -4,6 +4,7 @@ experiment:
   verbose: false
   cache_type: lru
   cache_size: 128
+  expt_logger_enabled: true
 
 ge:
   grammar_file: grammar.bnf

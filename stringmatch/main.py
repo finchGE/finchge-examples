@@ -52,4 +52,4 @@ if __name__ == '__main__':
 
  
     result = ge_.run() 
-    print("Best Solution:", result.best_individual.phenotype)
+    print("Best Solution:", result.all_time_best.phenotype)

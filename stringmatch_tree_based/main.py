@@ -40,12 +40,11 @@ if __name__ == '__main__':
                                          parallel_config=ge_config.parallel
                                          )
     # Setup Tree based Operators
-    subtree_crossover_=SubtreeCrossover(crossover_proba=ge_config.ge[Keys.CROSSOVER_PROBABILITY],  
-                                       non_terminals=grammar.non_terminals)
-    subtree_mutation_=SubtreeMutation(mutation_probability=ge_config.ge[Keys.MUTATION_PROBABILITY],
-                                         tree_generator=tree_generator,
-                                         non_terminals=grammar.non_terminals,
-                                         mutation_max_depth=ge_config.ge[Keys.MUTATION_MAX_DEPTH])
+    subtree_crossover_=SubtreeCrossover(crossover_proba=ge_config.ge[Keys.CROSSOVER_PROBABILITY],
+                                       non_terminals=grammar.non_terminals,
+                                       tree_generator=tree_generator)
+    subtree_mutation_=SubtreeMutation(tree_generator=tree_generator,
+                                         non_terminals=grammar.non_terminals)
     
     ga = GeneticAlgorithm(
                 selection=TournamentSelection(max_best=False, tournament_size=ge_config.ge[Keys.TOURNAMENT_SIZE]),
@@ -65,4 +64,4 @@ if __name__ == '__main__':
 
     #cProfile.run('ge_.find_fittest()')
     result = ge_.run()  
-    print("Best Solution:", result.best_individual.phenotype)
+    print("Best Solution:", result.all_time_best.phenotype)

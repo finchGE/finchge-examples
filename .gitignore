@@ -34,14 +34,3 @@ build/
 .vscode/
 
 .mypy_cache/
-
-
-# Incomplete examples will be included later
-control
-feature_selection
-feature_selection_lexicase
-hpo
-logic
-ge_regressor
-vladislavleva4
-smoke_test_all.sh
